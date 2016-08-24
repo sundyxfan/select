@@ -3,12 +3,12 @@ webpackJsonp([3],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(335);
+	module.exports = __webpack_require__(334);
 
 
 /***/ },
 
-/***/ 335:
+/***/ 334:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17,17 +17,17 @@ webpackJsonp([3],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDom = __webpack_require__(36);
+	var _reactDom = __webpack_require__(35);
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _rcSelect = __webpack_require__(176);
+	var _rcSelect = __webpack_require__(173);
 	
 	var _rcSelect2 = _interopRequireDefault(_rcSelect);
 	
-	__webpack_require__(324);
+	__webpack_require__(323);
 	
-	var _rcDialog = __webpack_require__(336);
+	var _rcDialog = __webpack_require__(335);
 	
 	var _rcDialog2 = _interopRequireDefault(_rcDialog);
 	
@@ -119,16 +119,16 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 336:
+/***/ 335:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	module.exports = __webpack_require__(337);
+	module.exports = __webpack_require__(336);
 
 /***/ },
 
-/***/ 337:
+/***/ 336:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -137,7 +137,7 @@ webpackJsonp([3],{
 	  value: true
 	});
 	
-	var _extends2 = __webpack_require__(198);
+	var _extends2 = __webpack_require__(195);
 	
 	var _extends3 = _interopRequireDefault(_extends2);
 	
@@ -145,11 +145,11 @@ webpackJsonp([3],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Dialog = __webpack_require__(338);
+	var _Dialog = __webpack_require__(337);
 	
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 	
-	var _getContainerRenderMixin = __webpack_require__(319);
+	var _getContainerRenderMixin = __webpack_require__(318);
 	
 	var _getContainerRenderMixin2 = _interopRequireDefault(_getContainerRenderMixin);
 	
@@ -209,7 +209,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 338:
+/***/ 337:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -218,7 +218,7 @@ webpackJsonp([3],{
 	  value: true
 	});
 	
-	var _extends2 = __webpack_require__(198);
+	var _extends2 = __webpack_require__(195);
 	
 	var _extends3 = _interopRequireDefault(_extends2);
 	
@@ -226,35 +226,30 @@ webpackJsonp([3],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDom = __webpack_require__(36);
+	var _reactDom = __webpack_require__(35);
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _KeyCode = __webpack_require__(221);
+	var _KeyCode = __webpack_require__(218);
 	
 	var _KeyCode2 = _interopRequireDefault(_KeyCode);
 	
-	var _rcAnimate = __webpack_require__(269);
+	var _rcAnimate = __webpack_require__(266);
 	
 	var _rcAnimate2 = _interopRequireDefault(_rcAnimate);
 	
-	var _LazyRenderBox = __webpack_require__(339);
+	var _LazyRenderBox = __webpack_require__(338);
 	
 	var _LazyRenderBox2 = _interopRequireDefault(_LazyRenderBox);
+	
+	var _getScrollBarSize = __webpack_require__(339);
+	
+	var _getScrollBarSize2 = _interopRequireDefault(_getScrollBarSize);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 	
 	var uuid = 0;
 	var openCount = 0;
-	
-	// Measure scrollbar width for padding body during modal show/hide
-	var scrollbarMeasure = {
-	  position: 'absolute',
-	  top: '-9999px',
-	  width: '50px',
-	  height: '50px',
-	  overflow: 'scroll'
-	};
 	
 	/* eslint react/no-is-mounted:0 */
 	
@@ -552,7 +547,7 @@ webpackJsonp([3],{
 	    return this.refs[part];
 	  },
 	  setScrollbar: function setScrollbar() {
-	    if (this.bodyIsOverflowing && this.scrollbarWidth) {
+	    if (this.bodyIsOverflowing && this.scrollbarWidth !== undefined) {
 	      document.body.style.paddingRight = this.scrollbarWidth + 'px';
 	    }
 	  },
@@ -587,30 +582,14 @@ webpackJsonp([3],{
 	    }
 	    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth;
 	    if (this.bodyIsOverflowing) {
-	      this.scrollbarWidth = this.measureScrollbar();
+	      this.scrollbarWidth = (0, _getScrollBarSize2["default"])();
 	    }
 	  },
 	  resetScrollbar: function resetScrollbar() {
 	    document.body.style.paddingRight = '';
 	  },
-	  measureScrollbar: function measureScrollbar() {
-	    if (this.scrollbarWidth !== undefined) {
-	      return this.scrollbarWidth;
-	    }
-	    var scrollDiv = document.createElement('div');
-	    for (var scrollProp in scrollbarMeasure) {
-	      if (scrollbarMeasure.hasOwnProperty(scrollProp)) {
-	        scrollDiv.style[scrollProp] = scrollbarMeasure[scrollProp];
-	      }
-	    }
-	    document.body.appendChild(scrollDiv);
-	    var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-	    document.body.removeChild(scrollDiv);
-	    this.scrollbarWidth = scrollbarWidth;
-	    return scrollbarWidth;
-	  },
 	  adjustDialog: function adjustDialog() {
-	    if (this.refs.wrap && this.scrollbarWidth) {
+	    if (this.refs.wrap && this.scrollbarWidth !== undefined) {
 	      var modalIsOverflowing = this.refs.wrap.scrollHeight > document.documentElement.clientHeight;
 	      this.refs.wrap.style.paddingLeft = (!this.bodyIsOverflowing && modalIsOverflowing ? this.scrollbarWidth : '') + 'px';
 	      this.refs.wrap.style.paddingRight = (this.bodyIsOverflowing && !modalIsOverflowing ? this.scrollbarWidth : '') + 'px';
@@ -657,7 +636,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 339:
+/***/ 338:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -666,7 +645,7 @@ webpackJsonp([3],{
 	  value: true
 	});
 	
-	var _extends2 = __webpack_require__(198);
+	var _extends2 = __webpack_require__(195);
 	
 	var _extends3 = _interopRequireDefault(_extends2);
 	
@@ -705,8 +684,56 @@ webpackJsonp([3],{
 
 /***/ },
 
+/***/ 339:
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	var cached = void 0;
+	
+	function getScrollBarSize(fresh) {
+	  if (fresh || cached === undefined) {
+	    var inner = document.createElement('div');
+	    inner.style.width = '100%';
+	    inner.style.height = '200px';
+	
+	    var outer = document.createElement('div');
+	    var outerStyle = outer.style;
+	
+	    outerStyle.position = 'absolute';
+	    outerStyle.top = 0;
+	    outerStyle.left = 0;
+	    outerStyle.pointerEvents = 'none';
+	    outerStyle.visibility = 'hidden';
+	    outerStyle.width = '200px';
+	    outerStyle.height = '150px';
+	    outerStyle.overflow = 'hidden';
+	
+	    outer.appendChild(inner);
+	
+	    document.body.appendChild(outer);
+	
+	    var widthContained = inner.offsetWidth;
+	    outer.style.overflow = 'scroll';
+	    var widthScroll = inner.offsetWidth;
+	
+	    if (widthContained === widthScroll) {
+	      widthScroll = outer.clientWidth;
+	    }
+	
+	    document.body.removeChild(outer);
+	
+	    cached = widthContained - widthScroll;
+	  }
+	  return cached;
+	}
+	
+	module.exports = getScrollBarSize;
+
+/***/ },
+
 /***/ 340:
-324
+323
 
 });
 //# sourceMappingURL=getPopupContainer.js.map
