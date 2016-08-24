@@ -2,8 +2,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Select, { Option } from 'rc-select';
-import 'rc-select/assets/index.less';
+import Select, { Option } from 'so-select';
+import 'so-select/assets/index.less';
 
 const Test = React.createClass({
   getInitialState() {

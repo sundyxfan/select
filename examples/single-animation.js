@@ -1,8 +1,8 @@
 /* eslint no-console: 0 */
 
 import React from 'react';
-import Select, { Option } from 'sophon-select';
-import 'sophon-select/assets/index.less';
+import Select, { Option } from 'so-select';
+import 'so-select/assets/index.less';
 import ReactDOM from 'react-dom';
 
 function onChange(value) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Select, { Option } from 'sophon-select';
-import 'sophon-select/assets/index.less';
+import Select, { Option } from 'so-select';
+import 'so-select/assets/index.less';
 import Dialog from 'rc-dialog';
 import 'rc-dialog/assets/index.css';
 

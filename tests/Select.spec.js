@@ -2,7 +2,7 @@ import expect from 'expect.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils, { Simulate } from 'react-addons-test-utils';
-import Select, { Option } from 'sophon-select';
+import Select, { Option } from 'so-select';
 import $ from 'jquery';
 
 describe('Select', () => {
