@@ -17,9 +17,9 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _rcSelect = __webpack_require__(173);
+	var _sophonSelect = __webpack_require__(173);
 	
-	var _rcSelect2 = _interopRequireDefault(_rcSelect);
+	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
 	
 	__webpack_require__(323);
 	
@@ -47,7 +47,7 @@ webpackJsonp([1],{
 	    if (value) {
 	      if (value.indexOf('@') >= 0) {
 	        options = _react2.default.createElement(
-	          _rcSelect.Option,
+	          _sophonSelect.Option,
 	          { key: value },
 	          value
 	        );
@@ -55,7 +55,7 @@ webpackJsonp([1],{
 	        options = ['gmail.com', 'yahoo.com', 'outlook.com'].map(function (domain) {
 	          var email = value + '@' + domain;
 	          return _react2.default.createElement(
-	            _rcSelect.Option,
+	            _sophonSelect.Option,
 	            { key: email },
 	            email
 	          );
@@ -68,7 +68,7 @@ webpackJsonp([1],{
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
-	      _rcSelect2.default,
+	      _sophonSelect2.default,
 	      {
 	        combobox: true,
 	        notFoundContent: false,

@@ -17,9 +17,9 @@ webpackJsonp([7],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _rcSelect = __webpack_require__(173);
+	var _sophonSelect = __webpack_require__(173);
 	
-	var _rcSelect2 = _interopRequireDefault(_rcSelect);
+	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
 	
 	__webpack_require__(323);
 	
@@ -34,7 +34,7 @@ webpackJsonp([7],{
 	for (var i = 10; i < 36; i++) {
 	  // 11 => readonly selected item
 	  children.push(_react2.default.createElement(
-	    _rcSelect.Option,
+	    _sophonSelect.Option,
 	    { disabled: i === 11, key: i.toString(36) + i },
 	    '中文',
 	    i
@@ -69,7 +69,7 @@ webpackJsonp([7],{
 	        'div',
 	        { style: { width: 300 } },
 	        _react2.default.createElement(
-	          _rcSelect2.default,
+	          _sophonSelect2.default,
 	          {
 	            multiple: true,
 	            value: this.state.value,

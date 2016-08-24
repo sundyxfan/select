@@ -17,9 +17,9 @@ webpackJsonp([9],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _rcSelect = __webpack_require__(173);
+	var _sophonSelect = __webpack_require__(173);
 	
-	var _rcSelect2 = _interopRequireDefault(_rcSelect);
+	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
 	
 	__webpack_require__(323);
 	
@@ -47,7 +47,7 @@ webpackJsonp([9],{
 	    'div',
 	    { style: { width: 300 } },
 	    _react2.default.createElement(
-	      _rcSelect2.default,
+	      _sophonSelect2.default,
 	      {
 	        defaultValue: '张三',
 	        style: { width: 500 },
@@ -56,17 +56,17 @@ webpackJsonp([9],{
 	        onChange: onChange
 	      },
 	      _react2.default.createElement(
-	        _rcSelect.Option,
+	        _sophonSelect.Option,
 	        { value: '张三', desc: '张三 zhang san' },
 	        '张三'
 	      ),
 	      _react2.default.createElement(
-	        _rcSelect.Option,
+	        _sophonSelect.Option,
 	        { value: '李四', desc: '李四 li si' },
 	        '李四'
 	      ),
 	      _react2.default.createElement(
-	        _rcSelect.Option,
+	        _sophonSelect.Option,
 	        { value: '王五', desc: '王五 wang wu' },
 	        '王五'
 	      )

@@ -17,9 +17,9 @@ webpackJsonp([11],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _rcSelect = __webpack_require__(173);
+	var _sophonSelect = __webpack_require__(173);
 	
-	var _rcSelect2 = _interopRequireDefault(_rcSelect);
+	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
 	
 	__webpack_require__(323);
 	
@@ -48,7 +48,7 @@ webpackJsonp([11],{
 	    'div',
 	    { style: { width: 300 } },
 	    _react2.default.createElement(
-	      _rcSelect2.default,
+	      _sophonSelect2.default,
 	      {
 	        allowClear: true,
 	        placeholder: 'placeholder',
@@ -59,7 +59,7 @@ webpackJsonp([11],{
 	        onChange: onChange
 	      },
 	      _react2.default.createElement(
-	        _rcSelect.Option,
+	        _sophonSelect.Option,
 	        { value: 'jack' },
 	        _react2.default.createElement(
 	          'b',
@@ -72,17 +72,17 @@ webpackJsonp([11],{
 	        )
 	      ),
 	      _react2.default.createElement(
-	        _rcSelect.Option,
+	        _sophonSelect.Option,
 	        { value: 'lucy' },
 	        'lucy'
 	      ),
 	      _react2.default.createElement(
-	        _rcSelect.Option,
+	        _sophonSelect.Option,
 	        { value: 'disabled', disabled: true },
 	        'disabled'
 	      ),
 	      _react2.default.createElement(
-	        _rcSelect.Option,
+	        _sophonSelect.Option,
 	        { value: 'yiminghe' },
 	        'yiminghe'
 	      )

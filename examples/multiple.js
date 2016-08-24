@@ -17,9 +17,9 @@ webpackJsonp([6],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _rcSelect = __webpack_require__(173);
+	var _sophonSelect = __webpack_require__(173);
 	
-	var _rcSelect2 = _interopRequireDefault(_rcSelect);
+	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
 	
 	__webpack_require__(323);
 	
@@ -34,7 +34,7 @@ webpackJsonp([6],{
 	var children = [];
 	for (var i = 10; i < 36; i++) {
 	  children.push(_react2.default.createElement(
-	    _rcSelect.Option,
+	    _sophonSelect.Option,
 	    { key: i.toString(36) + i },
 	    '中文',
 	    i
@@ -95,7 +95,7 @@ webpackJsonp([6],{
 	        'div',
 	        { style: { width: 300 } },
 	        _react2.default.createElement(
-	          _rcSelect2.default,
+	          _sophonSelect2.default,
 	          {
 	            value: this.state.value,
 	            animation: this.state.useAnim ? 'slide-up' : null,

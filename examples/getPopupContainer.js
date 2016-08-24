@@ -21,9 +21,9 @@ webpackJsonp([3],{
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _rcSelect = __webpack_require__(173);
+	var _sophonSelect = __webpack_require__(173);
 	
-	var _rcSelect2 = _interopRequireDefault(_rcSelect);
+	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
 	
 	__webpack_require__(323);
 	
@@ -87,24 +87,24 @@ webpackJsonp([3],{
 	          'div',
 	          { style: { marginTop: 20, position: 'relative' } },
 	          _react2.default.createElement(
-	            _rcSelect2.default,
+	            _sophonSelect2.default,
 	            {
 	              placeholder: 'placeholder',
 	              style: { width: 200 },
 	              getPopupContainer: this.getPopupContainer
 	            },
 	            _react2.default.createElement(
-	              _rcSelect.Option,
+	              _sophonSelect.Option,
 	              { value: '1' },
 	              '1'
 	            ),
 	            _react2.default.createElement(
-	              _rcSelect.Option,
+	              _sophonSelect.Option,
 	              { value: '2' },
 	              '2'
 	            ),
 	            _react2.default.createElement(
-	              _rcSelect.Option,
+	              _sophonSelect.Option,
 	              { value: '3' },
 	              '3'
 	            )

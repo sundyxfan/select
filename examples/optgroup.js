@@ -17,9 +17,9 @@ webpackJsonp([8],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _rcSelect = __webpack_require__(173);
+	var _sophonSelect = __webpack_require__(173);
 	
-	var _rcSelect2 = _interopRequireDefault(_rcSelect);
+	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
 	
 	__webpack_require__(323);
 	
@@ -47,7 +47,7 @@ webpackJsonp([8],{
 	    'div',
 	    { style: { width: 300 } },
 	    _react2.default.createElement(
-	      _rcSelect2.default,
+	      _sophonSelect2.default,
 	      {
 	        placeholder: 'placeholder',
 	        defaultValue: 'lucy',
@@ -56,10 +56,10 @@ webpackJsonp([8],{
 	        onChange: onChange
 	      },
 	      _react2.default.createElement(
-	        _rcSelect.OptGroup,
+	        _sophonSelect.OptGroup,
 	        { label: 'manager' },
 	        _react2.default.createElement(
-	          _rcSelect.Option,
+	          _sophonSelect.Option,
 	          { value: 'jack' },
 	          _react2.default.createElement(
 	            'b',
@@ -72,16 +72,16 @@ webpackJsonp([8],{
 	          )
 	        ),
 	        _react2.default.createElement(
-	          _rcSelect.Option,
+	          _sophonSelect.Option,
 	          { value: 'lucy' },
 	          'lucy'
 	        )
 	      ),
 	      _react2.default.createElement(
-	        _rcSelect.OptGroup,
+	        _sophonSelect.OptGroup,
 	        { label: 'engineer' },
 	        _react2.default.createElement(
-	          _rcSelect.Option,
+	          _sophonSelect.Option,
 	          { value: 'yiminghe' },
 	          'yiminghe'
 	        )

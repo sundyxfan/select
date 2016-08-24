@@ -863,9 +863,9 @@ webpackJsonp([4],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _rcSelect = __webpack_require__(173);
+	var _sophonSelect = __webpack_require__(173);
 	
-	var _rcSelect2 = _interopRequireDefault(_rcSelect);
+	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
 	
 	__webpack_require__(323);
 	
@@ -904,7 +904,7 @@ webpackJsonp([4],{
 	    var data = this.state.data;
 	    var options = data.map(function (d) {
 	      return _react2.default.createElement(
-	        _rcSelect.Option,
+	        _sophonSelect.Option,
 	        { key: d.value },
 	        _react2.default.createElement(
 	          'i',
@@ -925,7 +925,7 @@ webpackJsonp([4],{
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          _rcSelect2.default,
+	          _sophonSelect2.default,
 	          {
 	            value: this.state.value,
 	            labelInValue: true,

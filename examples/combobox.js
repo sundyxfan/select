@@ -19,9 +19,9 @@ webpackJsonp([0],[
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _rcSelect = __webpack_require__(173);
+	var _sophonSelect = __webpack_require__(173);
 	
-	var _rcSelect2 = _interopRequireDefault(_rcSelect);
+	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
 	
 	__webpack_require__(323);
 	
@@ -77,7 +77,7 @@ webpackJsonp([0],[
 	        'div',
 	        { style: { width: 300 }, onKeyDown: this.onKeyDown },
 	        _react2.default.createElement(
-	          _rcSelect2.default,
+	          _sophonSelect2.default,
 	          {
 	            disabled: this.state.disabled,
 	            style: { width: 500 },
@@ -91,7 +91,7 @@ webpackJsonp([0],[
 	            combobox: true
 	          },
 	          _react2.default.createElement(
-	            _rcSelect.Option,
+	            _sophonSelect.Option,
 	            { value: 'jack' },
 	            _react2.default.createElement(
 	              'b',
@@ -100,17 +100,17 @@ webpackJsonp([0],[
 	            )
 	          ),
 	          _react2.default.createElement(
-	            _rcSelect.Option,
+	            _sophonSelect.Option,
 	            { value: 'lucy' },
 	            'lucy'
 	          ),
 	          _react2.default.createElement(
-	            _rcSelect.Option,
+	            _sophonSelect.Option,
 	            { value: 'disabled', disabled: true },
 	            'disabled'
 	          ),
 	          _react2.default.createElement(
-	            _rcSelect.Option,
+	            _sophonSelect.Option,
 	            { value: 'yiminghe' },
 	            'yiminghe'
 	          )
