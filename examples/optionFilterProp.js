@@ -1,14 +1,14 @@
-webpackJsonp([9],{
+webpackJsonp([8],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(346);
+	module.exports = __webpack_require__(355);
 
 
 /***/ },
 
-/***/ 346:
+/***/ 355:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17,11 +17,11 @@ webpackJsonp([9],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _sophonSelect = __webpack_require__(173);
+	var _soSelect = __webpack_require__(173);
 	
-	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
+	var _soSelect2 = _interopRequireDefault(_soSelect);
 	
-	__webpack_require__(323);
+	__webpack_require__(333);
 	
 	var _reactDom = __webpack_require__(35);
 	
@@ -47,26 +47,27 @@ webpackJsonp([9],{
 	    'div',
 	    { style: { width: 300 } },
 	    _react2.default.createElement(
-	      _sophonSelect2.default,
+	      _soSelect2.default,
 	      {
 	        defaultValue: '张三',
 	        style: { width: 500 },
 	        placeholder: 'placeholder',
+	        searchPlaceholder: 'searchPlaceholder',
 	        optionFilterProp: 'desc',
 	        onChange: onChange
 	      },
 	      _react2.default.createElement(
-	        _sophonSelect.Option,
+	        _soSelect.Option,
 	        { value: '张三', desc: '张三 zhang san' },
 	        '张三'
 	      ),
 	      _react2.default.createElement(
-	        _sophonSelect.Option,
+	        _soSelect.Option,
 	        { value: '李四', desc: '李四 li si' },
 	        '李四'
 	      ),
 	      _react2.default.createElement(
-	        _sophonSelect.Option,
+	        _soSelect.Option,
 	        { value: '王五', desc: '王五 wang wu' },
 	        '王五'
 	      )

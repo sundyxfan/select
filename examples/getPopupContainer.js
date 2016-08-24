@@ -3,12 +3,12 @@ webpackJsonp([3],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(334);
+	module.exports = __webpack_require__(344);
 
 
 /***/ },
 
-/***/ 334:
+/***/ 344:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21,17 +21,17 @@ webpackJsonp([3],{
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _sophonSelect = __webpack_require__(173);
+	var _soSelect = __webpack_require__(173);
 	
-	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
+	var _soSelect2 = _interopRequireDefault(_soSelect);
 	
-	__webpack_require__(323);
+	__webpack_require__(333);
 	
-	var _rcDialog = __webpack_require__(335);
+	var _rcDialog = __webpack_require__(345);
 	
 	var _rcDialog2 = _interopRequireDefault(_rcDialog);
 	
-	__webpack_require__(340);
+	__webpack_require__(350);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -87,24 +87,25 @@ webpackJsonp([3],{
 	          'div',
 	          { style: { marginTop: 20, position: 'relative' } },
 	          _react2.default.createElement(
-	            _sophonSelect2.default,
+	            _soSelect2.default,
 	            {
 	              placeholder: 'placeholder',
+	              searchPlaceholder: 'searchPlaceholder',
 	              style: { width: 200 },
 	              getPopupContainer: this.getPopupContainer
 	            },
 	            _react2.default.createElement(
-	              _sophonSelect.Option,
+	              _soSelect.Option,
 	              { value: '1' },
 	              '1'
 	            ),
 	            _react2.default.createElement(
-	              _sophonSelect.Option,
+	              _soSelect.Option,
 	              { value: '2' },
 	              '2'
 	            ),
 	            _react2.default.createElement(
-	              _sophonSelect.Option,
+	              _soSelect.Option,
 	              { value: '3' },
 	              '3'
 	            )
@@ -119,16 +120,16 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 335:
+/***/ 345:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	module.exports = __webpack_require__(336);
+	module.exports = __webpack_require__(346);
 
 /***/ },
 
-/***/ 336:
+/***/ 346:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -145,11 +146,11 @@ webpackJsonp([3],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Dialog = __webpack_require__(337);
+	var _Dialog = __webpack_require__(347);
 	
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 	
-	var _getContainerRenderMixin = __webpack_require__(318);
+	var _getContainerRenderMixin = __webpack_require__(329);
 	
 	var _getContainerRenderMixin2 = _interopRequireDefault(_getContainerRenderMixin);
 	
@@ -209,7 +210,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 337:
+/***/ 347:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -230,19 +231,19 @@ webpackJsonp([3],{
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _KeyCode = __webpack_require__(218);
+	var _KeyCode = __webpack_require__(224);
 	
 	var _KeyCode2 = _interopRequireDefault(_KeyCode);
 	
-	var _rcAnimate = __webpack_require__(266);
+	var _rcAnimate = __webpack_require__(286);
 	
 	var _rcAnimate2 = _interopRequireDefault(_rcAnimate);
 	
-	var _LazyRenderBox = __webpack_require__(338);
+	var _LazyRenderBox = __webpack_require__(348);
 	
 	var _LazyRenderBox2 = _interopRequireDefault(_LazyRenderBox);
 	
-	var _getScrollBarSize = __webpack_require__(339);
+	var _getScrollBarSize = __webpack_require__(349);
 	
 	var _getScrollBarSize2 = _interopRequireDefault(_getScrollBarSize);
 	
@@ -636,7 +637,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 338:
+/***/ 348:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -684,7 +685,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 339:
+/***/ 349:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -732,8 +733,8 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 340:
-323
+/***/ 350:
+333
 
 });
 //# sourceMappingURL=getPopupContainer.js.map

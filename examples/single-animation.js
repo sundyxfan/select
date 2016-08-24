@@ -1,14 +1,14 @@
-webpackJsonp([11],{
+webpackJsonp([10],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(348);
+	module.exports = __webpack_require__(357);
 
 
 /***/ },
 
-/***/ 348:
+/***/ 357:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17,11 +17,11 @@ webpackJsonp([11],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _sophonSelect = __webpack_require__(173);
+	var _soSelect = __webpack_require__(173);
 	
-	var _sophonSelect2 = _interopRequireDefault(_sophonSelect);
+	var _soSelect2 = _interopRequireDefault(_soSelect);
 	
-	__webpack_require__(323);
+	__webpack_require__(333);
 	
 	var _reactDom = __webpack_require__(35);
 	
@@ -48,10 +48,11 @@ webpackJsonp([11],{
 	    'div',
 	    { style: { width: 300 } },
 	    _react2.default.createElement(
-	      _sophonSelect2.default,
+	      _soSelect2.default,
 	      {
 	        allowClear: true,
 	        placeholder: 'placeholder',
+	        searchPlaceholder: 'searchPlaceholder',
 	        defaultValue: 'lucy',
 	        style: { width: 500 },
 	        animation: 'slide-up',
@@ -59,7 +60,7 @@ webpackJsonp([11],{
 	        onChange: onChange
 	      },
 	      _react2.default.createElement(
-	        _sophonSelect.Option,
+	        _soSelect.Option,
 	        { value: 'jack' },
 	        _react2.default.createElement(
 	          'b',
@@ -72,17 +73,17 @@ webpackJsonp([11],{
 	        )
 	      ),
 	      _react2.default.createElement(
-	        _sophonSelect.Option,
+	        _soSelect.Option,
 	        { value: 'lucy' },
 	        'lucy'
 	      ),
 	      _react2.default.createElement(
-	        _sophonSelect.Option,
+	        _soSelect.Option,
 	        { value: 'disabled', disabled: true },
 	        'disabled'
 	      ),
 	      _react2.default.createElement(
-	        _sophonSelect.Option,
+	        _soSelect.Option,
 	        { value: 'yiminghe' },
 	        'yiminghe'
 	      )
