@@ -12,13 +12,6 @@
   position: relative;
   vertical-align: middle;
   color: #666;
-  line-height: 28px;
-
-  &-allow-clear {
-    .@{selectPrefixCls}-selection--single .@{selectPrefixCls}-selection__rendered {
-      padding-right: 40px;
-    }
-  }
 
   ul, li {
     margin: 0;
@@ -38,7 +31,6 @@
     top: 1px;
     right: 1px;
     width: 20px;
-    outline: none;
     b {
       border-color: #999999 transparent transparent transparent;
       border-style: solid;
@@ -64,12 +56,6 @@
     background-color: #fff;
     border-radius: 6px;
     border: 1px solid #d9d9d9;
-
-    &__placeholder {
-      position: absolute;
-      top: 0;
-      color: #aaa;
-    }
   }
 
   &-focused &-selection {
@@ -89,24 +75,21 @@
 
   &-selection--single {
     height: 28px;
-    line-height: 28px;
     cursor: pointer;
     position: relative;
 
-    .@{selectPrefixCls}-selection-selected-value {
+    .@{selectPrefixCls}-selection__placeholder {
       position: absolute;
-      left: 0;
       top: 0;
+      color: #aaa;
     }
 
     .@{selectPrefixCls}-selection__rendered {
-      height: 28px;
-      position: relative;
       display: block;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      margin-left: 10px;
+      padding-left: 10px;
       padding-right: 20px;
       line-height: 28px;
     }
@@ -114,9 +97,8 @@
     .@{selectPrefixCls}-selection__clear {
       font-weight: bold;
       position: absolute;
-      top: 0;
+      top: 5px;
       right: 20px;
-      line-height: 28px;
 
       &:after {
         content: '×'
@@ -142,6 +124,7 @@
 
   &-search__field__wrap {
     display: inline-block;
+    position: relative;
   }
 
   &-search__field__placeholder {
@@ -153,6 +136,7 @@
 
   &-search--inline {
     width: 100%;
+    position: relative;
     .@{selectPrefixCls}-search__field__wrap {
       width: 100%;
     }
@@ -163,15 +147,13 @@
       background: transparent;
       outline: 0;
       width: 100%;
-      &::-ms-clear {
-        display: none;
-      }
     }
-    .@{selectPrefixCls}-search__field__mirror {
+    .@{selectPrefixCls}-selection-selected-value {
       position: absolute;
-      top: -999px;
       left: 0;
-      white-space: pre;
+      top: 0;
+      opacity: 0.4;
+      filter: "alpha(opacity=40)";
     }
     > i {
       float: right;
@@ -202,16 +184,17 @@
     }
 
     .@{selectPrefixCls}-selection__rendered {
-      position: relative;
+      //display: inline-block;
       overflow: hidden;
       text-overflow: ellipsis;
-      margin-left: 8px;
+      padding-left: 8px;
       padding-bottom: 2px;
+    }
 
-      .@{selectPrefixCls}-selection__choice {
-        margin-top: 4px;
-        line-height: 20px;
-      }
+    > ul > li {
+      margin-top: 4px;
+      height: 20px;
+      line-height: 20px;
     }
   }
 
@@ -226,16 +209,6 @@
         .@{selectPrefixCls}-selection__choice__content {
           margin-left: -8px;
           margin-right: 8px;
-        }
-      }
-    }
-
-    .@{selectPrefixCls}-selection__choice__disabled {
-      cursor: not-allowed;
-      &:hover {
-        .@{selectPrefixCls}-selection__choice__content {
-          margin-left: 0;
-          margin-right: 0;
         }
       }
     }
@@ -369,16 +342,10 @@
         display: block;
         padding: 7px 10px;
         font-weight: normal;
-        color: #666;
+        color: #666666;
         white-space: nowrap;
 
-        &-disabled {
-          color: #ccc;
-          cursor: not-allowed;
-        }
-
         &-selected {
-          color: #666;
           background-color: #ddd;
         }
 
@@ -386,6 +353,11 @@
           background-color: #5897fb;
           color: white;
           cursor: pointer;
+        }
+
+        &-disabled {
+          color: #ccc;
+          cursor: not-allowed;
         }
 
         &-divider {
@@ -483,11 +455,32 @@
     }
   }
 
+  &-dropdown-search {
+    display: block;
+    padding: 4px;
+    .@{selectPrefixCls}-search__field__wrap {
+      width: 100%;
+    }
+    .@{selectPrefixCls}-search__field__placeholder {
+      top: 4px;
+    }
+    .@{selectPrefixCls}-search__field {
+      padding: 4px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      outline: none;
+    }
+    &.@{selectPrefixCls}-search--hide {
+      display: none;
+    }
+  }
+
   &-open {
     .@{selectPrefixCls}-arrow b {
       border-color: transparent transparent #888 transparent;
       border-width: 0 4px 5px 4px;
     }
   }
-
 }

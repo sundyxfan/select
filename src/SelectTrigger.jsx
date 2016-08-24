@@ -3,7 +3,6 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import DropdownMenu from './DropdownMenu';
 import ReactDOM from 'react-dom';
-import { isSingleMode } from './util';
 
 const BUILT_IN_PLACEMENTS = {
   bottomLeft: {
@@ -26,13 +25,9 @@ const BUILT_IN_PLACEMENTS = {
 
 const SelectTrigger = React.createClass({
   propTypes: {
-    onPopupFocus: PropTypes.func,
     dropdownMatchSelectWidth: PropTypes.bool,
     dropdownAlign: PropTypes.object,
     visible: PropTypes.bool,
-    disabled: PropTypes.bool,
-    showSearch: PropTypes.bool,
-    dropdownClassName: PropTypes.string,
     multiple: PropTypes.bool,
     inputValue: PropTypes.string,
     filterOption: PropTypes.any,
@@ -92,32 +87,22 @@ const SelectTrigger = React.createClass({
     this.popupMenu = menu;
   },
   render() {
-    const { onPopupFocus, ...props } = this.props;
-    const { multiple, visible, inputValue, dropdownAlign,
-      disabled, showSearch, dropdownClassName } = props;
+    const props = this.props;
+    const { multiple, visible, inputValue, dropdownAlign } = props;
     const dropdownPrefixCls = this.getDropdownPrefixCls();
     const popupClassName = {
-      [dropdownClassName]: !!dropdownClassName,
+      [props.dropdownClassName]: !!props.dropdownClassName,
       [`${dropdownPrefixCls}--${multiple ? 'multiple' : 'single'}`]: 1,
     };
     const popupElement = this.getDropdownElement({
       menuItems: props.options,
-      onPopupFocus,
       multiple,
       inputValue,
       visible,
     });
-    let hideAction;
-    if (disabled) {
-      hideAction = [];
-    } else if (isSingleMode(props) && !showSearch) {
-      hideAction = ['click'];
-    } else {
-      hideAction = ['blur'];
-    }
     return (<Trigger {...props}
-      showAction={disabled ? [] : ['click']}
-      hideAction={hideAction}
+      showAction={props.disabled ? [] : ['click']}
+      hideAction={props.disabled ? [] : ['blur']}
       ref="trigger"
       popupPlacement="bottomLeft"
       builtinPlacements={BUILT_IN_PLACEMENTS}

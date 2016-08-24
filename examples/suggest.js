@@ -1,8 +1,8 @@
 /* eslint no-console: 0 */
 
 import React from 'react';
-import Select, { Option } from 'rc-select';
-import 'rc-select/assets/index.less';
+import Select, { Option } from 'sophon-select';
+import 'sophon-select/assets/index.less';
 import { fetch } from './common/tbFetchSuggest';
 import ReactDOM from 'react-dom';
 
@@ -56,6 +56,7 @@ const Search = React.createClass({
           combobox
           value={this.state.value}
           placeholder="placeholder"
+          searchPlaceholder="searchPlaceholder"
           defaultActiveFirstOption={false}
           showArrow={false}
           notFoundContent=""

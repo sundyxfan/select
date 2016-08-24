@@ -2,7 +2,7 @@ import expect from 'expect.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils, { Simulate } from 'react-addons-test-utils';
-import Select, { Option } from 'rc-select';
+import Select, { Option } from 'sophon-select';
 import $ from 'jquery';
 
 describe('Select', () => {
@@ -38,6 +38,29 @@ describe('Select', () => {
     });
   });
 
+  it('allow number value', (done) => {
+    function onChange(v) {
+      expect(v).to.be(1);
+      done();
+    }
+    instance = ReactDOM.render(
+      <Select
+        onChange={onChange}
+        value={2}
+      >
+        <Option value={1}>1</Option>
+        <Option value={2}>2</Option>
+      </Select>,
+      div);
+    instance.setState({
+      open: true,
+    });
+    let activeItem = $(instance.getPopupDOMNode()).find('.rc-select-dropdown-menu-item-active')[0];
+    expect(activeItem.innerHTML).to.be('2');
+    activeItem = $(instance.getPopupDOMNode()).find('.rc-select-dropdown-menu-item')[0];
+    Simulate.click(activeItem);
+  });
+
   it('should add css class of root dom node', () => {
     instance = ReactDOM.render(
       <Select className="forTest" openClassName="my-open" value="2">
@@ -56,8 +79,8 @@ describe('Select', () => {
     instance.setState({
       open: true,
     }, () => {
-      expect(instance.getPopupMenuComponent().instanceArray[0].isSelected()).to.be(false);
-      expect(instance.getPopupMenuComponent().instanceArray[1].isSelected()).to.be(true);
+      expect(instance.getPopupMenuComponent().instanceArray[0].props.selected).to.be(false);
+      expect(instance.getPopupMenuComponent().instanceArray[1].props.selected).to.be(true);
       done();
     });
   });
@@ -72,25 +95,14 @@ describe('Select', () => {
     instance.setState({
       open: true,
     }, () => {
-      expect(instance.getPopupMenuComponent().instanceArray[0].isSelected()).to.be(true);
-      expect(instance.getPopupMenuComponent().instanceArray[1].isSelected()).to.be(true);
-      expect(instance.getPopupMenuComponent().instanceArray[2].isSelected()).to.be(false);
+      expect(instance.getPopupMenuComponent().instanceArray[0].props.selected).to.be(true);
+      expect(instance.getPopupMenuComponent().instanceArray[1].props.selected).to.be(true);
+      expect(instance.getPopupMenuComponent().instanceArray[2].props.selected).to.be(false);
       done();
     });
   });
 
-  it('should show clear button', () => {
-    instance = ReactDOM.render(
-      <Select value="1" allowClear>
-        <Option value="1">1</Option>
-        <Option value="2">2</Option>
-      </Select>,
-      div);
-    expect(TestUtils.scryRenderedDOMComponentsWithClass(instance,
-      'rc-select-selection__clear')[0].style.display).to.be('block');
-  });
-
-  it('should hide clear button', () => {
+  it('should have clear button', () => {
     instance = ReactDOM.render(
       <Select allowClear>
         <Option value="1">1</Option>
@@ -98,7 +110,7 @@ describe('Select', () => {
       </Select>,
       div);
     expect(TestUtils.scryRenderedDOMComponentsWithClass(instance,
-      'rc-select-selection__clear')[0].style.display).to.be('none');
+      'rc-select-selection__clear').length).to.be(1);
   });
 
   it('should not response click event when select is disabled', (done) => {
@@ -125,7 +137,7 @@ describe('Select', () => {
 
   it('should show placeholder in singleMode when value is undefined', (done) => {
     instance = ReactDOM.render(
-      <Select placeholder="aaa">
+      <Select>
         <Option value="1">1</Option>
         <Option value="2">2</Option>
       </Select>, div);

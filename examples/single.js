@@ -1,8 +1,8 @@
 /* eslint no-console: 0 */
 
 import React from 'react';
-import Select, { Option } from 'rc-select';
-import 'rc-select/assets/index.less';
+import Select, { Option } from 'sophon-select';
+import 'sophon-select/assets/index.less';
 import ReactDOM from 'react-dom';
 
 const Test = React.createClass({
@@ -20,7 +20,6 @@ const Test = React.createClass({
     } else {
       value = e;
     }
-    console.log('onChange', value);
     this.setState({
       value,
     });
@@ -30,10 +29,6 @@ const Test = React.createClass({
     this.setState({
       destroy: 1,
     });
-  },
-
-  onBlur(v) {
-    console.log('onBlur', v);
   },
 
   render() {
@@ -50,9 +45,9 @@ const Test = React.createClass({
           <Select
             value={this.state.value}
             placeholder="placeholder"
+            searchPlaceholder="searchPlaceholder"
             dropdownMenuStyle={{ maxHeight: 200, overflow: 'auto' }}
             style={{ width: 500 }}
-            onBlur={this.onBlur}
             allowClear
             optionLabelProp="children"
             optionFilterProp="text"

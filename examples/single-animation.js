@@ -1,8 +1,8 @@
 /* eslint no-console: 0 */
 
 import React from 'react';
-import Select, { Option } from 'rc-select';
-import 'rc-select/assets/index.less';
+import Select, { Option } from 'sophon-select';
+import 'sophon-select/assets/index.less';
 import ReactDOM from 'react-dom';
 
 function onChange(value) {
@@ -18,6 +18,7 @@ const c1 = (
       <Select
         allowClear
         placeholder="placeholder"
+        searchPlaceholder="searchPlaceholder"
         defaultValue="lucy"
         style={{ width: 500 }}
         animation="slide-up"

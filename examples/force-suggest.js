@@ -1,8 +1,8 @@
 /* eslint no-console: 0 */
 
 import React from 'react';
-import Select, { Option } from 'rc-select';
-import 'rc-select/assets/index.less';
+import Select, { Option } from 'sophon-select';
+import 'sophon-select/assets/index.less';
 import { fetch } from './common/tbFetchSuggest';
 import ReactDOM from 'react-dom';
 
@@ -23,17 +23,11 @@ const Search = React.createClass({
   },
 
   fetchData(value) {
-    if (value) {
-      fetch(value, (data) => {
-        this.setState({
-          data,
-        });
-      });
-    } else {
+    fetch(value, (data) => {
       this.setState({
-        data: [],
+        data,
       });
-    }
+    });
   },
 
   toggleDisabled() {
@@ -61,7 +55,7 @@ const Search = React.createClass({
           value={this.state.value}
           optionLabelProp="children"
           placeholder="placeholder"
-          defaultActiveFirstOption
+          searchPlaceholder="searchPlaceholder"
           style={{ width: 500 }}
           onChange={this.onChange}
           filterOption={false}

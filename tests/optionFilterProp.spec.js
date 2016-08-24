@@ -2,7 +2,7 @@ import expect from 'expect.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Simulate } from 'react-addons-test-utils';
-import Select, { Option } from 'rc-select';
+import Select, { Option } from 'sophon-select';
 import $ from 'jquery';
 
 describe('optionFilterProp', () => {

@@ -1,8 +1,8 @@
 /* eslint no-console: 0 */
 
 import React from 'react';
-import Select, { Option } from 'rc-select';
-import 'rc-select/assets/index.less';
+import Select, { Option } from 'sophon-select';
+import 'sophon-select/assets/index.less';
 import ReactDOM from 'react-dom';
 
 const children = [];
@@ -36,6 +36,7 @@ const Test = React.createClass({
         <div>
           <Select
             placeholder="placeholder"
+            searchPlaceholder="searchPlaceholder"
             tags
             dropdownMenuStyle={{ maxHeight: 200, overflow: 'auto' }}
             style={{ width: 500 }}

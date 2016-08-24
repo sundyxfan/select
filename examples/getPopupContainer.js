@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Select, { Option } from 'rc-select';
-import 'rc-select/assets/index.less';
+import Select, { Option } from 'sophon-select';
+import 'sophon-select/assets/index.less';
 import Dialog from 'rc-dialog';
 import 'rc-dialog/assets/index.css';
 
@@ -43,6 +43,7 @@ const Test = React.createClass({
         <div style={{ marginTop: 20, position: 'relative' }}>
           <Select
             placeholder="placeholder"
+            searchPlaceholder="searchPlaceholder"
             style={{ width: 200 }}
             getPopupContainer={this.getPopupContainer}
           >

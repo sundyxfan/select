@@ -1,6 +1,6 @@
 {
-  "name": "rc-select",
-  "version": "6.5.1",
+  "name": "sophon-select",
+  "version": "6.1.1",
   "description": "React Select",
   "keywords": [
     "react",
@@ -13,13 +13,13 @@
     "assets/*.css",
     "lib"
   ],
-  "homepage": "http://github.com/react-component/select",
+  "homepage": "http://github.com/sundyxfan/select.git",
   "repository": {
     "type": "git",
-    "url": "git@github.com:react-component/select.git"
+    "url": "git@github.com:sundyxfan/select.git"
   },
   "bugs": {
-    "url": "http://github.com/react-component/select/issues"
+    "url": "http://github.com/sundyxfan/select/issues"
   },
   "licenses": "MIT",
   "config": {

@@ -1,8 +1,8 @@
 /* eslint no-console: 0 */
 
 import React from 'react';
-import Select, { Option, OptGroup } from 'rc-select';
-import 'rc-select/assets/index.less';
+import Select, { Option, OptGroup } from 'sophon-select';
+import 'sophon-select/assets/index.less';
 import ReactDOM from 'react-dom';
 
 function onChange(value) {
@@ -15,6 +15,7 @@ const c1 = (
     <div style={{ width: 300 }}>
       <Select
         placeholder="placeholder"
+        searchPlaceholder="searchPlaceholder"
         defaultValue="lucy"
         showSearch={false}
         style={{ width: 500 }}
