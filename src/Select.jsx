@@ -152,12 +152,17 @@ const Select = React.createClass({
       inputValue: val,
       open: true,
     });
-    if (isCombobox(props)) {
+    if (isCombobox(props) && val !== '') {
       this.fireChange([{
         key: val,
       }]);
     }
-    props.onSearch(val);
+    if (val === '') {
+      this.fireChange([]);
+    }
+    if (props.onSearch) {
+      props.onSearch(val);
+    }
   },
 
   onDropdownVisibleChange(open) {
@@ -706,9 +711,10 @@ const Select = React.createClass({
               >
               <b/>
             </span>)}
-            {multiple ?
+            {this.getSearchPlaceholderElement(!!this.state.inputValue || this.state.value.length)}
+            {/*multiple ?
               this.getSearchPlaceholderElement(!!this.state.inputValue || this.state.value.length) :
-              null}
+              null*/}
           </div>
         </div>
       </SelectTrigger>
