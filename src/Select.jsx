@@ -656,8 +656,7 @@ const Select = React.createClass({
     const clear = (<span
       key="clear"
       className={`${prefixCls}-selection__clear`}
-      onClick={this.onClearSelection}
-    />);
+      onClick={this.onClearSelection}/>);
     return (
       <SelectTrigger
         dropdownAlign={props.dropdownAlign}
