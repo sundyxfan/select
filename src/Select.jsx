@@ -702,7 +702,7 @@ const Select = React.createClass({
           >
             {ctrlNode}
             {allowClear && !multiple ? clear : null}
-            {multiple || !props.showArrow ? null :
+            {!props.showArrow ? null :
               (<span
                 key="arrow"
                 className={`${prefixCls}-arrow`}
