@@ -3,12 +3,12 @@ webpackJsonp([8],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(355);
+	module.exports = __webpack_require__(372);
 
 
 /***/ },
 
-/***/ 355:
+/***/ 372:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21,7 +21,7 @@ webpackJsonp([8],{
 	
 	var _soSelect2 = _interopRequireDefault(_soSelect);
 	
-	__webpack_require__(333);
+	__webpack_require__(350);
 	
 	var _reactDom = __webpack_require__(35);
 	
