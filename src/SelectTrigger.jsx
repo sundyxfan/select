@@ -1,6 +1,5 @@
 import Trigger from 'rc-trigger';
 import React, { PropTypes } from 'react';
-import { Scrollbars } from 'react-custom-scrollbars';
 import classnames from 'classnames';
 import DropdownMenu from './DropdownMenu';
 import ReactDOM from 'react-dom';
@@ -110,7 +109,7 @@ const SelectTrigger = React.createClass({
       prefixCls={dropdownPrefixCls}
       popupTransitionName={this.getDropdownTransitionName()}
       onPopupVisibleChange={props.onDropdownVisibleChange}
-      popup={<Scrollbars autoHeight={true}>{popupElement}</Scrollbars>}
+      popup={popupElement}
       popupAlign={dropdownAlign}
       popupVisible={visible}
       getPopupContainer={props.getPopupContainer}
