@@ -3,12 +3,12 @@ webpackJsonp([8],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(355);
+	module.exports = __webpack_require__(365);
 
 
 /***/ },
 
-/***/ 355:
+/***/ 365:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17,13 +17,13 @@ webpackJsonp([8],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _soSelect = __webpack_require__(173);
+	var _soSelect = __webpack_require__(179);
 	
 	var _soSelect2 = _interopRequireDefault(_soSelect);
 	
-	__webpack_require__(333);
+	__webpack_require__(342);
 	
-	var _reactDom = __webpack_require__(35);
+	var _reactDom = __webpack_require__(33);
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
@@ -49,7 +49,7 @@ webpackJsonp([8],{
 	    _react2.default.createElement(
 	      _soSelect2.default,
 	      {
-	        defaultValue: '张三',
+	        defaultValue: '\u5F20\u4E09',
 	        style: { width: 500 },
 	        placeholder: 'placeholder',
 	        searchPlaceholder: 'searchPlaceholder',
@@ -58,18 +58,18 @@ webpackJsonp([8],{
 	      },
 	      _react2.default.createElement(
 	        _soSelect.Option,
-	        { value: '张三', desc: '张三 zhang san' },
-	        '张三'
+	        { value: '\u5F20\u4E09', desc: '\u5F20\u4E09 zhang san' },
+	        '\u5F20\u4E09'
 	      ),
 	      _react2.default.createElement(
 	        _soSelect.Option,
-	        { value: '李四', desc: '李四 li si' },
-	        '李四'
+	        { value: '\u674E\u56DB', desc: '\u674E\u56DB li si' },
+	        '\u674E\u56DB'
 	      ),
 	      _react2.default.createElement(
 	        _soSelect.Option,
-	        { value: '王五', desc: '王五 wang wu' },
-	        '王五'
+	        { value: '\u738B\u4E94', desc: '\u738B\u4E94 wang wu' },
+	        '\u738B\u4E94'
 	      )
 	    )
 	  )

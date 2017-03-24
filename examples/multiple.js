@@ -3,12 +3,12 @@ webpackJsonp([6],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(353);
+	module.exports = __webpack_require__(363);
 
 
 /***/ },
 
-/***/ 353:
+/***/ 363:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17,13 +17,13 @@ webpackJsonp([6],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _soSelect = __webpack_require__(173);
+	var _soSelect = __webpack_require__(179);
 	
 	var _soSelect2 = _interopRequireDefault(_soSelect);
 	
-	__webpack_require__(333);
+	__webpack_require__(342);
 	
-	var _reactDom = __webpack_require__(35);
+	var _reactDom = __webpack_require__(33);
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
@@ -36,7 +36,7 @@ webpackJsonp([6],{
 	  children.push(_react2.default.createElement(
 	    _soSelect.Option,
 	    { key: i.toString(36) + i },
-	    '中文',
+	    '\u4E2D\u6587',
 	    i
 	  ));
 	}
@@ -79,7 +79,7 @@ webpackJsonp([6],{
 	      _react2.default.createElement(
 	        'h2',
 	        null,
-	        'multiple select（scroll the menu）'
+	        'multiple select\uFF08scroll the menu\uFF09'
 	      ),
 	      _react2.default.createElement(
 	        'p',
