@@ -53,13 +53,8 @@
     "rc-menu": "5.x || 4.x",
     "rc-trigger": "1.x",
     "rc-util": "3.x",
-    "warning": "2.x",
     "react": "15.x",
-    "react-dom": "15.x",
-    "rc-dialog": "6.x",
-    "jquery": "~1.11.3",
-    "jsonp": "^0.2.0",
-     "querystring": "^0.2.0"
+    "react-dom": "15.x"
   },
   "pre-commit": [
     "lint"
