@@ -50,7 +50,7 @@ export default {
           style={UNSELECTABLE_STYLE}
           attribute={UNSELECTABLE_ATTRIBUTE}
           value={childValue}
-          key={childValue}
+          key={child.key || childValue}
           {...child.props}
         />);
       }
