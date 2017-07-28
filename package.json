@@ -1,6 +1,6 @@
 {
   "name": "so-select",
-  "version": "6.1.6",
+  "version": "6.1.7",
   "description": "React Select",
   "keywords": [
     "react",
@@ -59,7 +59,5 @@
     "rc-dialog": "6.x",
     "jsonp": "^0.2.0"
   },
-  "pre-commit": [
-    "lint"
-  ]
+  "pre-commit": []
 }
