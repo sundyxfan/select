@@ -1,6 +1,6 @@
 {
   "name": "so-select",
-  "version": "6.1.7",
+  "version": "6.1.6",
   "description": "React Select",
   "keywords": [
     "react",
@@ -34,7 +34,6 @@
     "karma": "rc-tools run karma",
     "saucelabs": "rc-tools run saucelabs",
     "test": "rc-tools run test",
-    "prepublish": "rc-tools run guard",
     "chrome-test": "rc-tools run chrome-test",
     "coverage": "rc-tools run coverage"
   },
