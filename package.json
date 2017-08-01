@@ -8,7 +8,7 @@
     "react-select",
     "select"
   ],
-  "main": "./index",
+  "main": "./lib/index",
   "files": [
     "assets/*.css",
     "lib"
@@ -28,6 +28,7 @@
   "scripts": {
     "build": "rc-tools run build",
     "gh-pages": "rc-tools run gh-pages",
+    "compile": "rc-tools run compile --babel-runtime",
     "start": "rc-tools run server",
     "pub": "rc-tools run pub --babel-runtime",
     "lint": "rc-tools run lint",
