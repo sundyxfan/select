@@ -5,6 +5,8 @@ import classnames from 'classnames';
 import OptGroup from './OptGroup';
 import Animate from 'rc-animate';
 import classes from 'component-classes';
+import { Item as MenuItem, ItemGroup as MenuItemGroup } from 'rc-menu';
+
 import {
   getPropValue, getValuePropValue, isCombobox,
   isMultipleOrTags, isMultipleOrTagsOrCombobox,
@@ -13,7 +15,6 @@ import {
   preventDefaultEvent,
 } from './util';
 import SelectTrigger from './SelectTrigger';
-import FilterMixin from './FilterMixin';
 
 function noop() {
 }
@@ -26,65 +27,9 @@ function saveRef(name, component) {
   this[name] = component;
 }
 
-const Select = React.createClass({
-  propTypes: {
-    defaultActiveFirstOption: PropTypes.bool,
-    multiple: PropTypes.bool,
-    filterOption: PropTypes.any,
-    showSearch: PropTypes.bool,
-    disabled: PropTypes.bool,
-    allowClear: PropTypes.bool,
-    showArrow: PropTypes.bool,
-    tags: PropTypes.bool,
-    prefixCls: PropTypes.string,
-    className: PropTypes.string,
-    transitionName: PropTypes.string,
-    optionLabelProp: PropTypes.string,
-    optionFilterProp: PropTypes.string,
-    animation: PropTypes.string,
-    choiceTransitionName: PropTypes.string,
-    onChange: PropTypes.func,
-    onSelect: PropTypes.func,
-    onSearch: PropTypes.func,
-    searchPlaceholder: PropTypes.string,
-    placeholder: PropTypes.any,
-    onDeselect: PropTypes.func,
-    labelInValue: PropTypes.bool,
-    value: PropTypes.any,
-    defaultValue: PropTypes.any,
-    dropdownStyle: PropTypes.object,
-    maxTagTextLength: PropTypes.number,
-  },
-  mixins: [FilterMixin],
-
-  getDefaultProps() {
-    return {
-      prefixCls: 'rc-select',
-      filterOption: filterFn,
-      defaultOpen: false,
-      labelInValue: false,
-      defaultActiveFirstOption: true,
-      showSearch: true,
-      allowClear: false,
-      placeholder: '',
-      searchPlaceholder: '',
-      defaultValue: [],
-      onChange: noop,
-      onSelect: noop,
-      onSearch: noop,
-      onDeselect: noop,
-      showArrow: true,
-      dropdownMatchSelectWidth: true,
-      dropdownStyle: {},
-      dropdownMenuStyle: {},
-      optionFilterProp: 'value',
-      optionLabelProp: 'value',
-      notFoundContent: 'Not Found',
-    };
-  },
-
-  getInitialState() {
-    const props = this.props;
+class Select extends React.Component {
+  constructor(props) {
+    super(props);
     let value = [];
     if ('value' in props) {
       value = toArray(props.value);
@@ -101,12 +46,13 @@ const Select = React.createClass({
     if (open === undefined) {
       open = props.defaultOpen;
     }
-    return {
+
+    this.state = {
       value,
       inputValue,
-      open,
+      open
     };
-  },
+  }
 
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
@@ -121,7 +67,7 @@ const Select = React.createClass({
         });
       }
     }
-  },
+  }
 
   componentDidUpdate() {
     const { state, props } = this;
@@ -134,7 +80,7 @@ const Select = React.createClass({
         inputNode.style.width = '';
       }
     }
-  },
+  }
 
   componentWillUnmount() {
     this.clearDelayTimer();
@@ -143,9 +89,9 @@ const Select = React.createClass({
       document.body.removeChild(this.dropdownContainer);
       this.dropdownContainer = null;
     }
-  },
+  }
 
-  onInputChange(event) {
+  onInputChange = (event) => {
     const val = event.target.value;
     const { props } = this;
     this.setState({
@@ -163,18 +109,18 @@ const Select = React.createClass({
     if (props.onSearch) {
       props.onSearch(val);
     }
-  },
+  }
 
-  onDropdownVisibleChange(open) {
+  onDropdownVisibleChange = (open) => {
     // selection inside combobox cause click
     if (!open && document.activeElement === this.getInputDOMNode()) {
       return;
     }
     this.setOpenState(open);
-  },
+  }
 
   // combobox ignore
-  onKeyDown(event) {
+  onKeyDown = (event) => {
     const props = this.props;
     if (props.disabled) {
       return;
@@ -186,9 +132,9 @@ const Select = React.createClass({
       this.setOpenState(true);
       event.preventDefault();
     }
-  },
+  }
 
-  onInputBlur() {
+  onInputBlur = () => {
     if (isMultipleOrTagsOrCombobox(this.props)) {
       return;
     }
@@ -196,9 +142,9 @@ const Select = React.createClass({
     this.delayTimer = setTimeout(() => {
       this.setOpenState(false);
     }, 150);
-  },
+  }
 
-  onInputKeyDown(event) {
+  onInputKeyDown = (event) => {
     const props = this.props;
     if (props.disabled) {
       return;
@@ -237,9 +183,9 @@ const Select = React.createClass({
         event.stopPropagation();
       }
     }
-  },
+  }
 
-  onMenuSelect({ item }) {
+  onMenuSelect = ({ item }) => {
     let value = this.state.value;
     const props = this.props;
     const selectedValue = getValuePropValue(item);
@@ -280,32 +226,32 @@ const Select = React.createClass({
         inputValue: getPropValue(item, props.optionLabelProp),
       });
     }
-  },
+  }
 
-  onMenuDeselect({ item, domEvent }) {
+  onMenuDeselect = ({ item, domEvent }) => {
     if (domEvent.type === 'click') {
       this.removeSelected(getValuePropValue(item));
     }
     this.setState({
       inputValue: '',
     });
-  },
+  }
 
-  onPlaceholderClick() {
+  onPlaceholderClick = () => {
     this.getInputDOMNode().focus();
-  },
+  }
 
-  onOuterFocus() {
+  onOuterFocus = () => {
     this._focused = true;
     this.updateFocusClassName();
-  },
+  }
 
-  onOuterBlur() {
+  onOuterBlur = () => {
     this._focused = false;
     this.updateFocusClassName();
-  },
+  }
 
-  onClearSelection(event) {
+  onClearSelection = (event) => {
     const props = this.props;
     const state = this.state;
     if (props.disabled) {
@@ -319,9 +265,9 @@ const Select = React.createClass({
         inputValue: '',
       });
     }
-  },
+  }
 
-  getLabelBySingleValue(children, value) {
+  getLabelBySingleValue = (children, value) => {
     if (value === undefined) {
       return null;
     }
@@ -337,17 +283,17 @@ const Select = React.createClass({
       }
     });
     return label;
-  },
+  }
 
-  getLabelFromOption(child) {
+  getLabelFromOption = (child) => {
     return getPropValue(child, this.props.optionLabelProp);
-  },
+  }
 
-  getLabelFromProps(props, value) {
+  getLabelFromProps = (props, value) => {
     return this.getLabelByValue(props.children, value);
-  },
+  }
 
-  getVLForOnChange(vls_) {
+  getVLForOnChange = (vls_) => {
     let vls = vls_;
     if (vls !== undefined) {
       if (!this.props.labelInValue) {
@@ -356,25 +302,25 @@ const Select = React.createClass({
       return isMultipleOrTags(this.props) ? vls : vls[0];
     }
     return vls;
-  },
+  }
 
-  getLabelByValue(children, value) {
+  getLabelByValue = (children, value) => {
     const label = this.getLabelBySingleValue(children, value);
     if (label === null) {
       return value;
     }
     return label;
-  },
+  }
 
-  getDropdownContainer() {
+  getDropdownContainer = () => {
     if (!this.dropdownContainer) {
       this.dropdownContainer = document.createElement('div');
       document.body.appendChild(this.dropdownContainer);
     }
     return this.dropdownContainer;
-  },
+  }
 
-  getSearchPlaceholderElement(hidden) {
+  getSearchPlaceholderElement = (hidden) => {
     const props = this.props;
     let placeholder;
     if (isMultipleOrTagsOrCombobox(props)) {
@@ -397,9 +343,9 @@ const Select = React.createClass({
       </div>);
     }
     return null;
-  },
+  }
 
-  getInputElement() {
+  getInputElement = () => {
     const props = this.props;
     const shouldShowPlaceholder = isMultipleOrTags(props) || props.showSearch;
     return (<div className={`${props.prefixCls}-search__field__wrap`}>
@@ -415,21 +361,21 @@ const Select = React.createClass({
       />
       {shouldShowPlaceholder ? null : this.getSearchPlaceholderElement(!!this.state.inputValue)}
     </div>);
-  },
+  }
 
-  getInputDOMNode() {
+  getInputDOMNode = () => {
     return this.inputInstance;
-  },
+  }
 
-  getPopupDOMNode() {
+  getPopupDOMNode = () => {
     return this.refs.trigger.getPopupDOMNode();
-  },
+  }
 
-  getPopupMenuComponent() {
+  getPopupMenuComponent = () => {
     return this.refs.trigger.getInnerMenu();
-  },
+  }
 
-  setOpenState(open, needFocus) {
+  setOpenState = (open, needFocus) => {
     this.clearDelayTimer();
     const { props, state } = this;
     if (state.open === open) {
@@ -446,9 +392,9 @@ const Select = React.createClass({
     this.setState(nextState, () => {
       this.afterOpen(open, needFocus);
     });
-  },
+  }
 
-  updateFocusClassName() {
+  updateFocusClassName = () => {
     const { refs, props } = this;
     // avoid setState and its side effect
     if (this._focused || this.state.open) {
@@ -456,9 +402,9 @@ const Select = React.createClass({
     } else {
       classes(refs.root).remove(`${props.prefixCls}-focused`);
     }
-  },
+  }
 
-  afterOpen(open, needFocus) {
+  afterOpen = (open, needFocus) => {
     const { props, refs } = this;
     if (needFocus || open) {
       if (open || isMultipleOrTagsOrCombobox(props)) {
@@ -470,9 +416,9 @@ const Select = React.createClass({
         refs.selection.focus();
       }
     }
-  },
+  }
 
-  addLabelToValue(props, value_) {
+  addLabelToValue = (props, value_) => {
     let value = value_;
     if (props.labelInValue) {
       value.forEach(v => {
@@ -487,16 +433,16 @@ const Select = React.createClass({
       });
     }
     return value;
-  },
+  }
 
-  clearDelayTimer() {
+  clearDelayTimer = () => {
     if (this.delayTimer) {
       clearTimeout(this.delayTimer);
       this.delayTimer = null;
     }
-  },
+  }
 
-  removeSelected(selectedKey) {
+  removeSelected = (selectedKey) => {
     const props = this.props;
     if (props.disabled) {
       return;
@@ -521,16 +467,16 @@ const Select = React.createClass({
       props.onDeselect(event);
     }
     this.fireChange(value);
-  },
+  }
 
-  openIfHasChildren() {
+  openIfHasChildren = () => {
     const props = this.props;
     if (React.Children.count(props.children) || isSingleMode(props)) {
       this.setOpenState(true);
     }
-  },
+  }
 
-  fireChange(value) {
+  fireChange = (value) => {
     const props = this.props;
     if (!('value' in props)) {
       this.setState({
@@ -538,9 +484,9 @@ const Select = React.createClass({
       });
     }
     props.onChange(this.getVLForOnChange(value));
-  },
+  }
 
-  renderTopControlNode() {
+  renderTopControlNode = () => {
     const { value, open, inputValue } = this.state;
     const props = this.props;
     const { choiceTransitionName, prefixCls, maxTagTextLength, showSearch } = props;
@@ -620,7 +566,110 @@ const Select = React.createClass({
       </Animate>);
     }
     return (<ul className={className}>{selectedValueNodes}</ul>);
-  },
+  }
+
+  filterOption = (input, child) => {
+    if (!input) {
+      return true;
+    }
+    const filterOption = this.props.filterOption;
+    if (!filterOption) {
+      return true;
+    }
+    if (child.props.disabled) {
+      return false;
+    }
+    return filterOption.call(this, input, child);
+  }
+
+  renderFilterOptions = (inputValue) => {
+    return this.renderFilterOptionsFromChildren(this.props.children, true, inputValue);
+  }
+
+  renderFilterOptionsFromChildren = (children, showNotFound, iv) => {
+    let sel = [];
+    const props = this.props;
+    const inputValue = iv === undefined ? this.state.inputValue : iv;
+    const childrenKeys = [];
+    const tags = props.tags;
+    React.Children.forEach(children, (child) => {
+      if (child.type === OptGroup) {
+        const innerItems = this.renderFilterOptionsFromChildren(child.props.children, false);
+        if (innerItems.length) {
+          let label = child.props.label;
+          let key = child.key;
+          if (!key && typeof label === 'string') {
+            key = label;
+          } else if (!label && key) {
+            label = key;
+          }
+          sel.push(<MenuItemGroup key={key} title={label}>
+            {innerItems}
+          </MenuItemGroup>);
+        }
+        return;
+      }
+      const childValue = getValuePropValue(child);
+      if (this.filterOption(inputValue, child)) {
+        sel.push(<MenuItem
+          style={UNSELECTABLE_STYLE}
+          attribute={UNSELECTABLE_ATTRIBUTE}
+          value={childValue}
+          key={child.key || childValue}
+          {...child.props}
+        />);
+      }
+      if (tags && !child.props.disabled) {
+        childrenKeys.push(childValue);
+      }
+    });
+    if (tags) {
+      // tags value must be string
+      let value = this.state.value || [];
+      value = value.filter((singleValue) => {
+        return childrenKeys.indexOf(singleValue.key) === -1 &&
+          (!inputValue || String(singleValue.key).indexOf(String(inputValue)) > -1);
+      });
+      sel = sel.concat(value.map((singleValue) => {
+        const key = singleValue.key;
+        return (<MenuItem
+          style={UNSELECTABLE_STYLE}
+          attribute={UNSELECTABLE_ATTRIBUTE}
+          value={key}
+          key={key}
+        >
+          {key}
+        </MenuItem>);
+      }));
+      if (inputValue) {
+        const notFindInputItem = sel.every((option) => {
+          return getValuePropValue(option) !== inputValue;
+        });
+        if (notFindInputItem) {
+          sel.unshift(<MenuItem
+            style={UNSELECTABLE_STYLE}
+            attribute={UNSELECTABLE_ATTRIBUTE}
+            value={inputValue}
+            key={inputValue}
+          >
+            {inputValue}
+          </MenuItem>);
+        }
+      }
+    }
+    if (!sel.length && showNotFound && props.notFoundContent) {
+      sel = [<MenuItem
+        style={UNSELECTABLE_STYLE}
+        attribute={UNSELECTABLE_ATTRIBUTE}
+        disabled
+        value="NOT_FOUND"
+        key="NOT_FOUND"
+      >
+        {props.notFoundContent}
+      </MenuItem>];
+    }
+    return sel;
+  }
 
   render() {
     const props = this.props;
@@ -718,7 +767,31 @@ const Select = React.createClass({
         </div>
       </SelectTrigger>
     );
-  },
-});
+  }
+}
+  
+Select.defaultProps = {
+    prefixCls: 'rc-select',
+    defaultOpen: false,
+    labelInValue: false,
+    defaultActiveFirstOption: true,
+    showSearch: true,
+    allowClear: false,
+    placeholder: '',
+    searchPlaceholder: '',
+    defaultValue: [],
+    onChange: noop,
+    onSelect: noop,
+    onSearch: noop,
+    onDeselect: noop,
+    showArrow: true,
+    dropdownMatchSelectWidth: true,
+    dropdownStyle: {},
+    dropdownMenuStyle: {},
+    optionFilterProp: 'value',
+    optionLabelProp: 'value',
+    notFoundContent: 'Not Found'
+}
+
 
 export default Select;

@@ -3,8 +3,12 @@ import OptGroup from './OptGroup';
 import { getValuePropValue, UNSELECTABLE_ATTRIBUTE, UNSELECTABLE_STYLE } from './util';
 import { Item as MenuItem, ItemGroup as MenuItemGroup } from 'rc-menu';
 
-export default {
-  filterOption(input, child) {
+export var FilterMixin = ComposedComponent => class extends React.Component {
+  constructor(props) {
+      super(props);
+  }
+
+  filterOption = (input, child) => {
     if (!input) {
       return true;
     }
@@ -16,12 +20,13 @@ export default {
       return false;
     }
     return filterOption.call(this, input, child);
-  },
-  renderFilterOptions(inputValue) {
-    return this.renderFilterOptionsFromChildren(this.props.children, true, inputValue);
-  },
+  }
 
-  renderFilterOptionsFromChildren(children, showNotFound, iv) {
+  renderFilterOptions = (inputValue) => {
+    return this.renderFilterOptionsFromChildren(this.props.children, true, inputValue);
+  }
+
+  renderFilterOptionsFromChildren = (children, showNotFound, iv) => {
     let sel = [];
     const props = this.props;
     const inputValue = iv === undefined ? this.state.inputValue : iv;
@@ -104,5 +109,10 @@ export default {
       </MenuItem>];
     }
     return sel;
-  },
-};
+  }
+
+  render() {
+    return <ComposedComponent {...this.props} renderFilterOptions={this.renderFilterOptions} renderFilterOptionsFromChildren={this.renderFilterOptionsFromChildren} filterOption={this.filterOption}/>
+  }
+
+}

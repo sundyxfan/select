@@ -4,28 +4,20 @@ import { getSelectKeys, preventDefaultEvent } from './util';
 import Menu, { ItemGroup as MenuItemGroup } from 'rc-menu';
 import scrollIntoView from 'dom-scroll-into-view';
 
-const DropdownMenu = React.createClass({
-  propTypes: {
-    defaultActiveFirstOption: PropTypes.bool,
-    value: PropTypes.any,
-    dropdownMenuStyle: PropTypes.object,
-    multiple: PropTypes.bool,
-    onMenuDeSelect: PropTypes.func,
-    onMenuSelect: PropTypes.func,
-    prefixCls: PropTypes.string,
-    menuItems: PropTypes.any,
-    inputValue: PropTypes.string,
-    visible: PropTypes.bool,
-  },
+class DropdownMenu extends React.Component {
+
+  constructor(props) {
+      super(props);
+  }
 
   componentWillMount() {
     this.lastInputValue = this.props.inputValue;
-  },
+  }
 
   componentDidMount() {
     this.scrollActiveItemToView();
     this.lastVisible = this.props.visible;
-  },
+  }
 
   shouldComponentUpdate(nextProps) {
     if (!nextProps.visible) {
@@ -33,7 +25,7 @@ const DropdownMenu = React.createClass({
     }
     // freeze when hide
     return nextProps.visible;
-  },
+  }
 
   componentDidUpdate(prevProps) {
     const props = this.props;
@@ -42,7 +34,7 @@ const DropdownMenu = React.createClass({
     }
     this.lastVisible = props.visible;
     this.lastInputValue = props.inputValue;
-  },
+  }
 
   scrollActiveItemToView() {
     // scroll into view
@@ -52,7 +44,7 @@ const DropdownMenu = React.createClass({
         onlyScrollIfNeeded: true,
       });
     }
-  },
+  }
 
   renderMenu() {
     const props = this.props;
@@ -122,7 +114,7 @@ const DropdownMenu = React.createClass({
       </Menu>);
     }
     return null;
-  },
+  }
 
   render() {
     return (<div>
@@ -130,7 +122,7 @@ const DropdownMenu = React.createClass({
         {this.renderMenu()}
       </div>
     </div>);
-  },
-});
+  }
+}
 
 export default DropdownMenu;
